@@ -2,6 +2,7 @@
 library(tidymodels)
 library(tidyverse)
 library(lime)
+library(tune)
 
 
 # Data --------------------------------------------------------------------
@@ -64,7 +65,7 @@ resam.train <- rsample::bootstraps(train.data, times = 20)
 
 roc.vals <- yardstick::metric_set(roc_auc)
 
-ctrl <- control_grid(verbose = FALSE)
+ctrl <- tune::control_grid(verbose = FALSE)
 
 # grid search
 # set.seed(1)
