@@ -47,7 +47,7 @@ rf.unfitted <- parsnip::rand_forest(mtry = tune::tune(), trees = tune::tune() ,m
 predictions <- parsnip::predict.model_fit(object = rf.model, new_data = test.data)
 
 results <- test.data %>%
-  cbind(predictions)
+  dplyr::bind_cols(predictions)
 
 # Yardstick ---------------------------------------------------------------
 
